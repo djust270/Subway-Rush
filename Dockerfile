@@ -1,7 +1,8 @@
 FROM python:3.11-slim
 
 WORKDIR /app
-COPY . .
+COPY subway_rush.html .
+COPY Override_Protocol.mp3 .
 
 EXPOSE 8080
 
