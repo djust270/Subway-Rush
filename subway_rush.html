@@ -142,6 +142,22 @@
   camera.position.set(0, 5.5, 7);
   camera.lookAt(0, 1.5, -20);
 
+  function adjustCameraForAspect() {
+    var aspect = window.innerWidth / window.innerHeight;
+    if (aspect < 0.7) {
+      camera.fov = 96;
+    } else if (aspect < 0.8) {
+      camera.fov = 90;
+    } else if (aspect < 0.9) {
+      camera.fov = 82;
+    } else if (aspect < 1.0) {
+      camera.fov = 75;
+    } else {
+      camera.fov = 65;
+    }
+    camera.updateProjectionMatrix();
+  }
+
   // ==== SHARED MATERIALS (critical perf fix - reuse everything) ====
   var matCache = {};
   function getMat(color, emissive, intensity, rough, metal) {
@@ -836,9 +852,11 @@
 
   window.addEventListener('resize', function() {
     camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    adjustCameraForAspect();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
+
+  adjustCameraForAspect();
 
   var startBtn = document.getElementById('startBtn');
   var restartBtn = document.getElementById('restartBtn');

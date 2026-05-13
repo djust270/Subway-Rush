@@ -2,6 +2,9 @@
 
 A neon-themed endless runner game built with Three.js, inspired by Subway Surfers. Dodge trains, barriers, and overhead obstacles while collecting coins in a cyberpunk city.
 
+This game was coded completely by qwen3.6:27b using OpenCode with the prompt from https://ultimateplay.com/games/subway-game
+Music created by gemini with the prompt `A bumping cyberpunk electro loop for a subway netrunner game`
+
 ## Features
 
 - 3-lane movement with smooth transitions
